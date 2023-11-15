@@ -13,7 +13,7 @@ char *readLine(int isInteractive)
 
 	if (isInteractive)
 	{
-		printf("$");
+		write(STDOUT_FILENO, "$ ", 2);
 	}
 
 	read = getline(&lineptr, &n, stdin);
