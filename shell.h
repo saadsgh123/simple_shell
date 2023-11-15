@@ -1,14 +1,18 @@
 #ifndef SHELL_H
 #define SHELL_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 
+#include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
 #include <string.h>
-#include <termios.h>
 #include <sys/wait.h>
+#include <stdlib.h>
+#include <signal.h>
 #include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <linux/limits.h>
+
 char *_strcpy(char *dest, const char *src);
 char *_strcat(char *dest, const char *src);
 char *_strchr(const char *str, int c);
