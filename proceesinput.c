@@ -1,5 +1,5 @@
 #include "shell.h"
-void processInput(char *line, char **argv, char **env) {
+void processInput2(char *line, char **argv, char **env) {
     int status = 0, i, j;
     int idx = 0;
     char **command = NULL;

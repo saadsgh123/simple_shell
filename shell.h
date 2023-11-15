@@ -22,7 +22,6 @@ void bultin(char **command, char **argv ,char **env , int *status, int idx);
 void exitshell(char **command , int *status);
 int isbuiltin(char *command);
 char *checkInDirectory(char *cmd, char *directory);
-void processInput(char *line, char **argv, char **env);
 char *intToA(int num);
 void envshell(char **command, char **env, int *status);
 char *_getenvrament(char *val, char **env);
@@ -31,8 +30,8 @@ char **tokenizeInput(char *line);
 int compare_env(const void *a, const void *b) ;
 char *Hnadlepath(char *cmd, char **env);
 void printerror(char *name_shell, char *cmd, int numbre);
-
-
+void processInput(int *status, char **argv, char **env);
+void processInput2(char *line, char **argv, char **env);
 
 
 #endif
