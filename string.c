@@ -2,14 +2,14 @@
 #include <stdlib.h>
 
 char *_strcpy(char *dest, const char *src) {
-    char *originalDest = dest; // Keep track of the original destination
+    char *originalDest = dest;
 
-    // Copy characters from source to destination
+
     while ((*dest++ = *src++) != '\0') {
-        // continue copying until null terminator is encountered
+     
     }
 
-    return originalDest; // Return the original destination
+    return originalDest;
 }
 #include <stddef.h>
 
@@ -27,46 +27,48 @@ char *_strcat(char *dest, const char *src) {
 }
 
 char *_strtok(char *str, const char *delim) {
-    static char *lastToken = NULL; // Keep track of the last token
+	char *tokenStart;
+    static char *lastToken = NULL;
 
     if (str != NULL) {
-        lastToken = str; // If a new string is provided, update the lastToken
+        lastToken = str;
     } else if (lastToken == NULL) {
-        return NULL; // If no new string and no lastToken, return NULL
+        return NULL;
     }
 
-    // Find the beginning of the token (skip leading delimiters)
+    
     while (*lastToken != '\0' && strchr(delim, *lastToken) != NULL) {
         lastToken++;
     }
 
-    // If no more tokens are found, return NULL
+   
     if (*lastToken == '\0') {
         return NULL;
     }
 
-    // Save the current position of lastToken
-    char *tokenStart = lastToken;
 
-    // Find the end of the token (skip non-delimiters)
+    tokenStart = lastToken;
+
+ 
     while (*lastToken != '\0' && strchr(delim, *lastToken) == NULL) {
         lastToken++;
     }
 
-    // If a token is found, null-terminate it and update lastToken
     if (*lastToken != '\0') {
         *lastToken++ = '\0';
     }
 
-    return tokenStart; // Return the start of the current token
+    return tokenStart;
 }
 char *_strdup(const char *str) {
+	 size_t len;
+	 char *copy;
     if (str == NULL) {
         return NULL;
     }
 
-    size_t len = strlen(str) + 1; // Include space for the null terminator
-    char *copy = (char *)malloc(len);
+    len = strlen(str) + 1;
+    copy = (char *)malloc(len);
 
     if (copy != NULL) {
         strcpy(copy, str);
@@ -81,11 +83,11 @@ int _strcmp(const char *str1, const char *str2) {
     }
 
     if (*str1 == *str2) {
-        return 0; // Strings are equal
+        return 0;
     } else if (*str1 < *str2) {
-        return -1; // str1 is less than str2
+        return -1;
     } else {
-        return 1; // str1 is greater than str2
+        return 1;
     }
 }
 
