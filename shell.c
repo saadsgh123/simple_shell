@@ -3,7 +3,10 @@
 
 int main(int argc, char **argv, char **env) {
     int status = 0;
-    int idx = 0; // Initialize idx
+    int idx = 0;
+	  int i;
+        int isEmpty = 1;
+    char **command;
     char *line = NULL;
     int isInteractive = isatty(STDIN_FILENO);
     (void)argc;
@@ -20,8 +23,6 @@ int main(int argc, char **argv, char **env) {
             return (status);
         }
 
-        int i;
-        int isEmpty = 1;
         for (i = 0; line[i] != '\0'; i++) {
             if (line[i] != ' ' && line[i] != '\t') {
                 isEmpty = 0;
@@ -37,7 +38,7 @@ int main(int argc, char **argv, char **env) {
 
         idx++;
 
-        char **command = tokenizeInput(line);
+        command = tokenizeInput(line);
 
         if (command != NULL) {
             for (i = 0; command[i] != NULL; i++) {
@@ -64,6 +65,6 @@ int main(int argc, char **argv, char **env) {
         free(line);
     }
 
-    return status; // Return the status code here
+    return status;
 }
 

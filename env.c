@@ -5,11 +5,12 @@
 #include <stddef.h>
 
 char *_getenvrament(char *val, char **env) {
+	int i = 0;
     if (val == NULL || env == NULL) {
         return NULL;
     }
 
-    int i = 0;
+
     while (env[i]) {
         char *copy = strdup(env[i]);
         char *copykey = strtok(copy, "=");
