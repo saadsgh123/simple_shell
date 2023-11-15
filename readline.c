@@ -1,30 +1,33 @@
 #include "shell.h"
-#include <stdlib.h>
-#include <stddef.h>
-#include <stdio.h>
+/**
+ * readLine - shell helper function.
+ * @isInteractive: line read from prompt.
+ * Return: 1 if Empty.
+ */
+char *readLine(int isInteractive)
+{
+	char *lineptr  = NULL;
 
-size_t _strlen(const char *str);
+	size_t n = 0;
+	ssize_t read;
 
-char *readLine(int isInteractive) {
-    char *lineptr  = NULL;
-    size_t n = 0;
-    ssize_t read;
+	if (isInteractive)
+	{
+		printf("$");
+	}
 
-    if (isInteractive) {
-        printf("$ ");
-    }
-    
+	read = getline(&lineptr, &n, stdin);
 
-    read = getline(&lineptr, &n, stdin);
+	if (read == -1)
+	{
+		free(lineptr);
+	return (NULL);
+	}
 
-    if (read == -1) {
-        free(lineptr);
-        return NULL;
-    }
+	if (read > 0 && lineptr[read - 1] == '\n')
+	{
+		lineptr[read - 1] = '\0';
+	}
 
-    if (read > 0 && lineptr[read - 1] == '\n') {
-        lineptr[read - 1] = '\0';
-    }
-
-    return lineptr;
+	return (lineptr);
 }

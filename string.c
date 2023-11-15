@@ -1,98 +1,129 @@
 #include "shell.h"
-#include <stdlib.h>
+/**
+ * _strcpy - shell helper function.
+ * @dest: line read from prompt.
+ * @src: source.
+ * Return: 1 if Empty.
+ */
+char *_strcpy(char *dest, const char *src)
+{
+	char *originalDest = dest;
 
-char *_strcpy(char *dest, const char *src) {
-    char *originalDest = dest; // Keep track of the original destination
+	while ((*dest++ = *src++) != '\0')
+	{
+	}
 
-    // Copy characters from source to destination
-    while ((*dest++ = *src++) != '\0') {
-        // continue copying until null terminator is encountered
-    }
-
-    return originalDest; // Return the original destination
+	return (originalDest);
 }
-#include <stddef.h>
+/**
+ * _strcat - shell helper function.
+ * @dest: line read from prompt.
+ * @src: source.
+ * Return: 1 if Empty.
+ */
+char *_strcat(char *dest, const char *src)
+{
+	size_t dest_len = _strlen(dest);
+	size_t i;
 
-char *_strcat(char *dest, const char *src) {
-    size_t dest_len = _strlen(dest);
-    size_t i;
+	for (i = 0; src[i] != '\0'; ++i)
+	{
+		dest[dest_len + i] = src[i];
+	}
 
-    for (i = 0; src[i] != '\0'; ++i) {
-        dest[dest_len + i] = src[i];
-    }
+	dest[dest_len + i] = '\0';
 
-    dest[dest_len + i] = '\0';
-
-    return dest;
+	return (dest);
 }
+/**
+ * _strtok - shell helper function.
+ * @str: line read from prompt.
+ * @delim: source.
+ * Return: 1 if Empty.
+ */
+char *_strtok(char *str, const char *delim)
+{
+	static char *lastToken;
 
-char *_strtok(char *str, const char *delim) {
-    static char *lastToken = NULL; // Keep track of the last token
+	if (str != NULL)
+	{
+		lastToken = str;
+	}
+	else if (lastToken == NULL)
+	{
+		return (NULL);
+	}
 
-    if (str != NULL) {
-        lastToken = str; // If a new string is provided, update the lastToken
-    } else if (lastToken == NULL) {
-        return NULL; // If no new string and no lastToken, return NULL
-    }
+	while (*lastToken != '\0' && strchr(delim, *lastToken) != NULL)
+	{
+		lastToken++;
+	}
 
-    // Find the beginning of the token (skip leading delimiters)
-    while (*lastToken != '\0' && strchr(delim, *lastToken) != NULL) {
-        lastToken++;
-    }
+	if (*lastToken == '\0')
+	{
+		return (NULL);
+	}
 
-    // If no more tokens are found, return NULL
-    if (*lastToken == '\0') {
-        return NULL;
-    }
+	char *tokenStart = lastToken;
 
-    // Save the current position of lastToken
-    char *tokenStart = lastToken;
+	while (*lastToken != '\0' && strchr(delim, *lastToken) == NULL)
+	{
+		lastToken++;
+	}
 
-    // Find the end of the token (skip non-delimiters)
-    while (*lastToken != '\0' && strchr(delim, *lastToken) == NULL) {
-        lastToken++;
-    }
+	if (*lastToken != '\0')
+	{
+		*lastToken++ = '\0';
+	}
 
-    // If a token is found, null-terminate it and update lastToken
-    if (*lastToken != '\0') {
-        *lastToken++ = '\0';
-    }
-
-    return tokenStart; // Return the start of the current token
+	return (tokenStart);
 }
-char *_strdup(const char *str) {
-    if (str == NULL) {
-        return NULL;
-    }
+/**
+ * _strdup - shell helper function.
+ * @str: line read from prompt.
+ * Return: 1 if Empty.
+ */
+char *_strdup(const char *str)
+{
+	if (str == NULL)
+	{
+		return (NULL);
+	}
 
-    size_t len = strlen(str) + 1; // Include space for the null terminator
-    char *copy = (char *)malloc(len);
+	size_t len = strlen(str) + 1;
+	char *copy = (char *)malloc(len);
 
-    if (copy != NULL) {
-        strcpy(copy, str);
-    }
+	if (copy != NULL)
+	{
+		strcpy(copy, str);
+	}
 
-    return copy;
+	return (copy);
 }
-int _strcmp(const char *str1, const char *str2) {
-    while (*str1 != '\0' && *str2 != '\0' && *str1 == *str2) {
-        str1++;
-        str2++;
-    }
+/**
+ * _strcmp - shell helper function.
+ * @str1: line read from prompt.
+ * @str2: source.
+ * Return: 1 if Empty.
+ */
+int _strcmp(const char *str1, const char *str2)
+{
+	while (*str1 != '\0' && *str2 != '\0' && *str1 == *str2)
+	{
+		str1++;
+		str2++;
+	}
 
-    if (*str1 == *str2) {
-        return 0; // Strings are equal
-    } else if (*str1 < *str2) {
-        return -1; // str1 is less than str2
-    } else {
-        return 1; // str1 is greater than str2
-    }
-}
-
-size_t _strlen(const char *str) {
-   size_t len = 0;
-    while (str[len] != '\0') {
-        len++;
-    }
-    return len;
+	if (*str1 == *str2)
+	{
+		return (0);
+	}
+	else if (*str1 < *str2)
+	{
+		return (-1);
+	}
+	else
+	{
+		return (1);
+	}
 }

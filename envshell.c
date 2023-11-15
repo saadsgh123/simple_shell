@@ -1,33 +1,44 @@
 #include "shell.h"
-#include <string.h>
-
-void envshell(char **env, int *status)
+/**
+* envshell - shell helper function.
+* @command: line read from prompt.
+* @env: environment
+* @status: status.
+*/
+void envshell(char **command, char **env, int *status)
 {
-    if (env == NULL) {
-        fprintf(stderr, "Error: Environment variables are NULL.\n");
-        *status = 1;
-        return;
-    }
+	(void)command;
+	(void)status;
 
-    int envCount = 0;
+	int i = 0;
 
-    while (env[envCount])
-    {
-        envCount++;
-    }
+	while (env[i])
+	{
+		i++;
+	}
 
-    qsort(env, envCount, sizeof(char *), compare_env);
-:w
-    for (int index = envCount - 1; index >= 0; index--)
-    {
-        write(STDOUT_FILENO, env[index], strlen(env[index]));
-        write(STDOUT_FILENO, "\n", 1);
-    }
+	qsort(env, i, sizeof(char *), compare_env);
 
-    *status = 0;
+	for (int j = i - 1; j >= 0; j--)
+	{
+		write(STDOUT_FILENO, env[j], strlen(env[j]));
+		write(STDOUT_FILENO, "\n", 1);
+	}
+	/**
+	 * for (int j = 0; j < i; j++) {
+     *     write(STDOUT_FILENO, env[j], strlen(env[j]));
+     *    write(STDOUT_FILENO, "\n", 1);
+     * }
+     */
+	(*status) = 0;
 }
-
+/**
+* compare_env - shell helper function.
+* @a: line read from prompt.
+* @b: environment
+* Return: 1 or 0.
+*/
 int compare_env(const void *a, const void *b)
 {
-    return strcmp(*(const char **)a, *(const char **)b);
+	return (strcmp(*(const char **)a, *(const char **)b));
 }
