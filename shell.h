@@ -24,10 +24,9 @@ void bultin(char **command, char **argv ,char **env , int *status, int idx);
 void exitshell(char **command , int *status);
 int isbuiltin(char *command);
 char *checkInDirectory(char *cmd, char *directory);
-void processInput(int *status, char **argv, char **env);
-// Function declarations
+void processInput(char *line, char **argv, char **env);
 char *intToA(int num);
-void envshell(char **env, int *status);
+void envshell(char **command, char **env, int *status);
 char *_getenvrament(char *val, char **env);
 char *readLine(int isInteractive);
 char **tokenizeInput(char *line);

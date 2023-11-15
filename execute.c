@@ -27,4 +27,5 @@ int _execute(char **cmd, char **env, char **argv, int idx) {
         wait(&status);
         return status;
     }
+    return 0;
 }
