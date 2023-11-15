@@ -24,6 +24,7 @@ void processCommand(char **command, char **argv, char **env, int *status, int id
 void processInput(int *status, char **argv, char **env) {
     int idx = 0;
     char *line = NULL;
+    char **command = NULL;
     int isInteractive = isatty(STDIN_FILENO);
 
     while (1) {
@@ -54,7 +55,7 @@ void processInput(int *status, char **argv, char **env) {
 
         idx++;
 
-        char **command = tokenizeInput(line);
+        command = tokenizeInput(line);
         free(line);
 
         processCommand(command, argv, env, status, idx);
