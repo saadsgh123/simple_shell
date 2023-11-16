@@ -27,6 +27,8 @@ char *_getenvrament(char *val, char **env);
 char *readLine(int isInteractive);
 char **tokenizeInput(char *line);
 int compare_env(const void *a, const void *b);
+void freeCommand(char **command);
+int checkIfLineIsEmpty(char *line);
 char *Hnadlepath(char *cmd, char **env);
 void printerror(char *name_shell, char *cmd, int numbre);
 void processInput(int *status, char **argv, char **env);
