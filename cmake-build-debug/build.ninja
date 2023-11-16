@@ -55,6 +55,36 @@ build CMakeFiles/simple_shell.dir/shell.c.o: C_COMPILER__simple_shell_unscanned_
   OBJECT_DIR = CMakeFiles/simple_shell.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_shell.dir
 
+build CMakeFiles/simple_shell.dir/envshell.c.o: C_COMPILER__simple_shell_unscanned_Debug /Users/macbookpro/Desktop/simple_shell/envshell.c || cmake_object_order_depends_target_simple_shell
+  DEP_FILE = CMakeFiles/simple_shell.dir/envshell.c.o.d
+  FLAGS = -g -std=gnu99 -isysroot "/Applications/Xcode 22.08.19.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk" -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_shell.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_shell.dir
+
+build CMakeFiles/simple_shell.dir/processinput.c.o: C_COMPILER__simple_shell_unscanned_Debug /Users/macbookpro/Desktop/simple_shell/processinput.c || cmake_object_order_depends_target_simple_shell
+  DEP_FILE = CMakeFiles/simple_shell.dir/processinput.c.o.d
+  FLAGS = -g -std=gnu99 -isysroot "/Applications/Xcode 22.08.19.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk" -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_shell.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_shell.dir
+
+build CMakeFiles/simple_shell.dir/readline.c.o: C_COMPILER__simple_shell_unscanned_Debug /Users/macbookpro/Desktop/simple_shell/readline.c || cmake_object_order_depends_target_simple_shell
+  DEP_FILE = CMakeFiles/simple_shell.dir/readline.c.o.d
+  FLAGS = -g -std=gnu99 -isysroot "/Applications/Xcode 22.08.19.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk" -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_shell.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_shell.dir
+
+build CMakeFiles/simple_shell.dir/env.c.o: C_COMPILER__simple_shell_unscanned_Debug /Users/macbookpro/Desktop/simple_shell/env.c || cmake_object_order_depends_target_simple_shell
+  DEP_FILE = CMakeFiles/simple_shell.dir/env.c.o.d
+  FLAGS = -g -std=gnu99 -isysroot "/Applications/Xcode 22.08.19.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk" -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_shell.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_shell.dir
+
+build CMakeFiles/simple_shell.dir/execute.c.o: C_COMPILER__simple_shell_unscanned_Debug /Users/macbookpro/Desktop/simple_shell/execute.c || cmake_object_order_depends_target_simple_shell
+  DEP_FILE = CMakeFiles/simple_shell.dir/execute.c.o.d
+  FLAGS = -g -std=gnu99 -isysroot "/Applications/Xcode 22.08.19.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk" -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_shell.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_shell.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target simple_shell
@@ -63,7 +93,7 @@ build CMakeFiles/simple_shell.dir/shell.c.o: C_COMPILER__simple_shell_unscanned_
 #############################################
 # Link the executable simple_shell
 
-build simple_shell: C_EXECUTABLE_LINKER__simple_shell_Debug CMakeFiles/simple_shell.dir/shell.c.o
+build simple_shell: C_EXECUTABLE_LINKER__simple_shell_Debug CMakeFiles/simple_shell.dir/shell.c.o CMakeFiles/simple_shell.dir/envshell.c.o CMakeFiles/simple_shell.dir/processinput.c.o CMakeFiles/simple_shell.dir/readline.c.o CMakeFiles/simple_shell.dir/env.c.o CMakeFiles/simple_shell.dir/execute.c.o
   FLAGS = -g -isysroot "/Applications/Xcode 22.08.19.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk"
   OBJECT_DIR = CMakeFiles/simple_shell.dir
   POST_BUILD = :

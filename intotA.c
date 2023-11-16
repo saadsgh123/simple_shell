@@ -1,31 +1,45 @@
 #include "shell.h"
-
-char *intToA(int num) {
+/**
+ * intToA - shell helper function.
+ * @num: line read from prompt.
+ * Return: 1 if Empty.
+ */
+char *intToA(int num)
+{
+	int temp = num, i, start = 0, end = 0;
 	char *str = NULL;
-    int temp = num, i, start = 0;
-    int numDigits = 1, end;
-    while (temp >= 10) {
-        temp /= 10;
-        numDigits++;
-    }
+	int numDigits = 1;
 
-    str = (char *)malloc(numDigits + 1);
-    if (str == NULL) {
-        return NULL;
-    }
-    str[numDigits] = '\0'; 
-    for (i = numDigits - 1; i >= 0; i--) {
-        str[i] = '0' + (num % 10);
-        num /= 10;
-    }
+	while (temp >= 10)
+	{
+		temp /= 10;
+		numDigits++;
+	}
 
-    end = numDigits - 1;
-    while (start < end) {
-        char temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
-        start++;
-        end--;
-    }
-return str;
+	str = (char *)malloc(numDigits + 1);
+
+	if (str == NULL)
+		return (NULL);
+	str[numDigits] = '\0';
+
+	for (i = numDigits - 1; i >= 0; i--)
+	{
+		str[i] = '0' + (num % 10);
+		num /= 10;
+	}
+
+
+	end = numDigits - 1;
+
+	while (start < end)
+	{
+		char temp = str[start];
+
+		str[start] = str[end];
+
+		str[end] = temp;
+		start++;
+		end--;
+	}
+	return (str);
 }

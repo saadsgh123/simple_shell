@@ -71,10 +71,8 @@ char *Hnadlepath(char *cmd, char **env)
 			free(path);
 			return (fullcmd);
 		}
-
 		directory = _strtok(NULL, ":");
 	}
-
 	free(path);
 	return (NULL);
 }
