@@ -9,7 +9,6 @@
 #include <termios.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-
 char *_strcpy(char *dest, const char *src);
 char *_strcat(char *dest, const char *src);
 char *_strchr(const char *str, int c);
@@ -33,5 +32,4 @@ void printerror(char *name_shell, char *cmd, int numbre);
 void processInput(int *status, char **argv, char **env);
 void processInput2(char *line, char **argv, char **env);
 void processCmd(char **command, char **argv, char **env, int *status, int idx);
-
 #endif
