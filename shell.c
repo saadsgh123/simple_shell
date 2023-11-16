@@ -11,11 +11,9 @@ int main(int argc, char **argv, char **env)
 	int idx = 0, isEmpty = 0, status = 0;
 	char *line = NULL;
 	char **command = NULL;
-
 	int isInteractive = isatty(STDIN_FILENO);
 
 	(void)argc;
-
 	while (1)
 	{
 		line = readLine(isInteractive);
@@ -109,6 +107,6 @@ void freeCommand(char **command)
 	{
 		free(command[i]);
 	}
-    
+
 	free(command);
 }
